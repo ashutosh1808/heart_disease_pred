@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title> Home | CardioPRED </title>
+		<style>
+			*{	font-size:100%; font-family:Verdana; }
+			body{	text-align:justify; background-color:skyblue; }
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1> Welcome to CardioPRED </h1>
+	<form action="/pred" method="post">
+   	<input type="number" placeholder="how old are you" name="age" min="1" required/>
+	<input type="radio" name="sex" value="0" checked/>Female
+	<input type="radio" name="sex" value="1"/>Male
+	<select name="cp" required>
+		<option value="0"/>Angina
+		<option value="1"/>Atypical angina
+		<option value="2"/>Non anginal pain
+		<option value="3"/>Asymptomatic
+	</select>
+	<input type="number" name="trtbps" placeholder="resting blood pressure" required/>
+	<br><br/>
+	<input type="number" placeholder="cholesterol level" name="chol" required/>
+	<select name="fbs" required>
+		<option value="1"/>Fasting sugar
+		<option value="0"/>No fasting sugar
+	</select>
+	<select name="restecg" required>
+		<option value="0"/>Normal
+		<option value="1"/>Having ST-T wave abnormality
+		<option value="2"/>Left ventricular hypertrophy
+	</select>
+	<br/><br/>
+	<input type="number" placeholder="enter max heart rate" name="thalachh" required/>
+	<select name="exng" required>
+		<option value="1"/>Exercise reduced angina
+		<option value="0"/>Not reduced angina
+	</select>
+	<br/><br/>
+	<input type="number" name="oldpeak" placeholder="enter previous peak" step="any" min="0" required/>
+	<input type="number" name="slp" placeholder="slope of peak exercise" step="any" min="0" required/>
+	<input type="number" name="caa" placeholder="major vessels" min="0" required/>
+	<br/><br/>
+	<select name="thall" required>
+		<option value="1"/>Thalassemic
+		<option value="0"/>Not thalassemic
+	</select>
+	<br/><br/>
+	<input type="submit" value="Predict"/>
+	</center>
+	</form>
+	<center>
+	{{msg}}
+	</center>
+	</body>
+</html>

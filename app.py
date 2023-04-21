@@ -9,6 +9,7 @@ def home():
 
 @app.route("/pred",methods=["POST"])
 def pred():
+	msg=""
 	age=int(request.form["age"])
 	sex=int(request.form["sex"])
 	cp=int(request.form["cp"])
@@ -25,8 +26,10 @@ def pred():
 	with open("heart.model","rb") as f:
 		model=pickle.load(f)
 	d=[[age,sex,cp,trtbps,chol,fbs,restecg,thalachh,exng,oldpeak,slp,caa,thall]]
-	res=model.predict(d)
-	return render_template("home.html",msg=res)
+	res=model.predict(d)[0]
+	if res==0:	msg="Heart disease NOT detected"
+	elif res==1:	msg="Heart disease detected!!"
+	return render_template("home.html",msg=msg)
 
 if __name__=="__main__":
 	app.run(debug=True,use_reloader=True)

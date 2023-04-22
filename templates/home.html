@@ -1,56 +1,124 @@
 <html>
 	<head>
 		<title> Home | CardioPRED </title>
-		<style>
-			*{	font-size:100%; font-family:Verdana; }
-			body{	text-align:justify; background-color:skyblue; }
-		</style>
 	</head>
+	<style>
+		*{
+			box-size:border-box;
+		}
+		body{
+			font-family:Verdana;
+			margin:15px 30px;
+			font-size:100%;
+			padding:8px;
+		}
+		.container{
+			background-color:#f2f2f2;
+			padding:5px 20px 15px 20px;
+			border:1px solid lightgray;
+			border-radius:4px;
+		}
+		input[type="number"],
+		input[type="text"],
+		select,option{
+			width:100%;
+			padding:12px;
+			border:1px solid #cccccc;
+			border-radius:5px;
+		}
+		input[type="submit"]
+		{
+			background-color:#006600;
+			color:white;
+			border:none;
+			width:100%;
+			font-size:30px;
+			height:50px;
+			cursor:pointer;
+		}
+		input[type="submit"]:hover{
+			background-color:#339933;
+		}
+		fieldset{
+			background-color:#fff;
+			border:1px solid 3ccc;
+		}
+	</style>
 	<body>
-	<center>
+	<div class="container">
 		<h1> Welcome to CardioPRED </h1>
+		<h2> To proceed ahead, fill the form </h2>
 	<form action="/pred" method="post">
+	<p> Enter your age 
    	<input type="number" placeholder="how old are you" name="age" min="1" required/>
+	</p>
+	<br/><br/>
+	<fieldset>
+	<legend>Gender</legend>
 	<input type="radio" name="sex" value="0" checked/>Female
 	<input type="radio" name="sex" value="1"/>Male
+	</fieldset>
+	<br/><br/>
+	<p>Choose chest pain type
 	<select name="cp" required>
 		<option value="0"/>Angina
 		<option value="1"/>Atypical angina
 		<option value="2"/>Non anginal pain
 		<option value="3"/>Asymptomatic
 	</select>
-	<input type="number" name="trtbps" placeholder="resting blood pressure" required/>
+	</p>
+	<br/><br/>
+	<p>Enter resting blood pressure 
+	<input type="number" name="trtbps" placeholder="in mm Hg" required/>
+	</p>
 	<br><br/>
+	<p>Enter cholesterol level 
 	<input type="number" placeholder="cholesterol level" name="chol" required/>
-	<select name="fbs" required>
-		<option value="1"/>Fasting sugar
-		<option value="0"/>No fasting sugar
-	</select>
+	</p>
+	<fieldset> 
+	<legend> Fasting blood pressure? </legend>
+	<input type="radio" name="fbs" value="1">Yes
+	<input type="radio" name="fbs" value="0" checked>No
+	</fieldset>
+	<br/><br/>
+	<p>Select electrocardiographic results
 	<select name="restecg" required>
 		<option value="0"/>Normal
 		<option value="1"/>Having ST-T wave abnormality
 		<option value="2"/>Left ventricular hypertrophy
 	</select>
+	</p>
 	<br/><br/>
+	<p>Enter max heart rate
 	<input type="number" placeholder="enter max heart rate" name="thalachh" required/>
-	<select name="exng" required>
-		<option value="1"/>Exercise reduced angina
-		<option value="0"/>Not reduced angina
-	</select>
+	</p>
+	<fieldset>
+	<legend>Exercise reduced angina ?</legend>
+	<input type="radio" name="exng" value="1">Yes
+	<input type="radio" name="exng" value="0" checked>No
+	</fieldset>
 	<br/><br/>
+	<p>Enter previous peak
 	<input type="number" name="oldpeak" placeholder="enter previous peak" step="any" min="0" required/>
-	<input type="number" name="slp" placeholder="slope of peak exercise" step="any" min="0" required/>
-	<input type="number" name="caa" placeholder="major vessels" min="0" required/>
 	<br/><br/>
-	<select name="thall" required>
-		<option value="1"/>Thalassemic
-		<option value="0"/>Not thalassemic
-	</select>
+	</p>
+	<p>Slope of peak exercise ? 
+	<input type="number" name="slp" placeholder="slope of peak exercise" step="any" min="0" required/>
+	</p>
+	<p>Enter major vessels 
+	<input type="number" name="caa" placeholder="major vessels" min="0" required/>
+	</p>
+	<br/><br/>
+	<fieldset> 
+	<legend>Is patient thalassemic?</legend>
+	<input type="radio" name="thall" value="1">Yes
+	<input type="radio" name="thall" value="0" checked>No
+	</fieldset>
 	<br/><br/>
 	<input type="submit" value="Predict"/>
-	</center>
+	</center>	
+	</div>
 	</form>
-	<center>
 	{{msg}}
 	</center>
 	</body>

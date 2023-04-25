@@ -50,67 +50,26 @@
 		<h2> To proceed ahead, fill the form </h2>
 	<form action="/pred" method="post">
 	<p> Enter your age 
-   	<input type="number" placeholder="how old are you" name="age" min="1" required/>
+   	<input type="number" placeholder="how old are you" name="age" min="18" required/>
 	</p>
-	<br/><br/>
+	<br/>
 	<fieldset>
 	<legend>Gender</legend>
 	<input type="radio" name="sex" value="0" checked/>Female
 	<input type="radio" name="sex" value="1"/>Male
 	</fieldset>
-	<br/><br/>
-	<p>Choose chest pain type
+	<br/>
+	<p>Chest pain type
 	<select name="cp" required>
-		<option value="0"/>Angina
-		<option value="1"/>Atypical angina
-		<option value="2"/>Non anginal pain
+		<option value="0"/>Not enough blood flow (Angina)
+		<option value="1"/>Atypical chest pain
+		<option value="2"/>Non cardiac arrest pain
 		<option value="3"/>Asymptomatic
 	</select>
-	</p>
-	<br/><br/>
-	<p>Enter resting blood pressure 
-	<input type="number" name="trtbps" placeholder="in mm Hg" required/>
-	</p>
-	<br><br/>
-	<p>Enter cholesterol level 
-	<input type="number" placeholder="cholesterol level" name="chol" required/>
-	</p>
-	<fieldset> 
-	<legend> Fasting blood pressure? </legend>
-	<input type="radio" name="fbs" value="1">Yes
-	<input type="radio" name="fbs" value="0" checked>No
-	</fieldset>
-	<br/><br/>
-	<p>Select electrocardiographic results
-	<select name="restecg" required>
-		<option value="0"/>Normal
-		<option value="1"/>Having ST-T wave abnormality
-		<option value="2"/>Left ventricular hypertrophy
-	</select>
-	</p>
-	<br/><br/>
 	<p>Enter max heart rate
-	<input type="number" placeholder="enter max heart rate" name="thalachh" required/>
-	</p>
-	<fieldset>
-	<legend>Exercise reduced angina ?</legend>
-	<input type="radio" name="exng" value="1">Yes
-	<input type="radio" name="exng" value="0" checked>No
-	</fieldset>
-	<br/><br/>
-	<p>Enter previous peak
-	<input type="number" name="oldpeak" placeholder="enter previous peak" step="any" min="0" required/>
-	<br/><br/>
-	</p>
-	<p>Slope of peak exercise ? 
-	<input type="number" name="slp" placeholder="slope of peak exercise" step="any" min="0" required/>
-	</p>
-	<p>Enter major vessels 
-	<input type="number" name="caa" placeholder="major vessels" min="0" required/>
-	</p>
-	<br/><br/>
-	<fieldset> 
-	<legend>Is patient thalassemic?</legend>
+	<input type="number" placeholder="enter max heart rate" min="60" max="100" name="thalachh" required/>
+	</p> 
+	<legend>Inherited blood disorders? </legend>
 	<input type="radio" name="thall" value="1">Yes
 	<input type="radio" name="thall" value="0" checked>No
 	</fieldset>
@@ -119,7 +78,9 @@
 	</center>	
 	</div>
 	</form>
+	<center>
 	{{msg}}
+	</center>
 	</center>
 	</body>
 </html>
